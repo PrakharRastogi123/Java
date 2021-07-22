@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Activity On Cricket Score</title>
+	<script>
+function func(){
+
+var s1,s2,run1,run2,wick1,wick2,c;
+var p,q;
+var name1=document.getElementById("team1name").value;
+var name2=document.getElementById("team2name").value;
+s1=document.getElementById("score1").value;
+s2=document.getElementById("score2").value;
+if(name1=="" || name2=="" || s1=="" || s2==""){
+	alert("Invalid Input");
+	return;
+}
+if(name1==name2){
+	alert("Invalid Input");
+	return;
+}
+for (var i =0 ; i <=s1.length - 1; i++) {
+	if(s1[i]=='/'){
+		p=i;
+		break;
+	}
+}
+for (var i =0 ; i <=s2.length - 1; i++) {
+	if(s1[i]=='/'){
+		q=i;
+		break;
+	}
+}
+
+run1=parseInt(s1.substring(0,p));
+wick1=parseInt(s1.substring(p+1));
+run2=parseInt(s2.substring(0,q));
+wick2=parseInt(s2.substring(q+1));
+
+if(wick1>10 || wick2>10){
+	alert("Invalid Input");
+	return;
+}
+if(Math.abs(run1-run2)>7){
+	alert("Invalid Input");
+	return;
+}
+if (run1>run2) {
+	if(wick2==10){
+		var k=run1-run2;
+		c=name1+" won by "+k+" runs ";
+	}
+	else{
+		var k=10-wick1;
+		c=name1+" won by "+k+" wickets ";
+	}
+}
+else if (run1<run2) {
+	if(wick1==10){
+		var k=run2-run1;
+		c=name2+" won by "+k+" runs ";
+	}
+	else{
+		var k=10-wick2;
+		c=name2+" won by "+k+" wickets ";
+	}
+}
+else{
+	c="Its a tie";
+}
+
+document.getElementById("answer").innerHTML= c;
+}
+</script>
+<style>
+	body{
+		font-family: sans-serif;
+	}
+	.center {
+	margin: auto;
+	width: 60%;
+	padding: 10px;
+	}
+	input{
+		border: solid;
+		border-width: thin;
+		border-color: #3333cc;
+	}
+</style>
+</head>
+<body>
+
+<div class="center" style="display: flex; width: 50%;flex-wrap: wrap;margin-top: 20%">
+	<div style="width: 50%;margin-bottom: 20px">
+		Enter Team Name 1: <input id="team1name" type="text" required>
+	</div>
+	<div>
+		Score 1: <input id="score1" required>
+	</div>
+	<div style="flex-basis: 100%; height:0"></div>
+	<div style="width: 50%">
+		Enter Team Name 2: <input id="team2name" type="text" required>
+	</div>
+	<div>
+		Score 2: <input id="score2" required>
+	</div>
+	<div style="flex-basis: 100%; height:0"></div>
+	<div style="margin-left: 43%">
+		<button onclick="func()">Result</button>	
+	</div>
+	<div style="flex-basis: 100%; height:0"></div>
+	<div style="margin-left: 43%;color: green" id="answer"></div>
+
+</div>
+
+
+</body>
+</html>

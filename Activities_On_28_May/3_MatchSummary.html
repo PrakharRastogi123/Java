@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>MATCH SUMMARY</title>
+        <style>
+            #container{
+                background-color: rgb(212, 212, 73);
+                margin-left: 30%;
+                font-size: 20px;
+                font-family: 'Times New Roman', Times, serif;
+                margin-right: 30%;
+                margin-top: 5%;
+            }
+            input {
+  
+                     padding: 5px;
+                     box-sizing: border-box;
+                     margin-top: 2px;
+                     margin-bottom: 6px;
+                     margin-left: 30px;
+                     width: 350px;
+                  }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <br>
+            <h2 style="margin-left: 20px;"> Match Summary</h2><br>
+            <div  style="text-align: left; margin-left: 20px; margin-top: 1px;">
+            Team A <span style="color: red;margin-right: 22px">&#42;</span> <input type="text" placeholder="Team A" id="team1" style="margin-left: 67px;" required><br>
+            Team B <span style="color: red;margin-right: 22px">&#42;</span> <input type="text" placeholder="Team B" id="team2" style="margin-left: 67px;" required><br>
+            Date <span style="color: red;margin-right: 22px">&#42;</span> <input type="date" placeholder="DD/MM/YYYY" id="date" style="margin-left: 89px;"  required><br>
+            Time <span style="color: red;margin-right: 22px">&#42;</span> <input type="text" placeholder="HH:MM:SS" id="time" style="margin-left: 86px;" required><br>
+            Team A Score <span style="color: red;margin-right: 22px">&#42;</span><input type="text" placeholder="Runs/wkts" style="margin-left: 20px;" id="team1score" required><br>
+            Team B Score <span style="color: red;margin-right: 22px">&#42;</span><input type="text" placeholder="Runs/wkts" style="margin-left: 20px;" id="team2score" required><br>
+            <button id="save" onclick="saveclicked()">Save</button>
+            </div>
+            <div id="win" style="margin-left: 20px;">Winning team:</div>
+            <br><br>  
+            
+        </div>
+        <script>
+            function saveclicked(){
+                var t1,t2,ts,ts,run1,run2,wkt1,wkt2,p,q,c;
+                t1=document.getElementById("team1").value;
+                t2=document.getElementById("team2").value;
+                t1s=document.getElementById("team1score").value;
+                t2s=document.getElementById("team2score").value;
+               
+                if(t1==t2)
+                {
+                    alert("BOTH TEAM NAMES CANNOT BE SAME");
+                    return;
+                }
+                if(t1.length>50 || t2.length>50)
+                {
+                    alert("TEAM NAME CANNOT BE MORE THAN 50 CHARACTER");
+                    return;
+                }
+                
+                
+                for (var i =0 ; i <=t1s.length - 1; i++) {
+                    if(t1s[i]=='/'){
+                    p=i;
+                    break;
+                    }
+                }
+                for (var i =0 ; i <=t2s.length - 1; i++) {
+                    if(t2s[i]=='/'){
+                    q=i;
+                    break;
+                }
+                }
+        
+                run1=parseInt(t1s.substring(0,p));
+                wkt1=parseInt(t1s.substring(p+1));
+                run2=parseInt(t2s.substring(0,q));
+                wkt2=parseInt(t2s.substring(q+1));
+                
+                
+                if(wkt1>10 || wkt2>10){
+                    alert("Invalid Input");
+                    return;
+                }
+               
+                
+                if (run1>run2) {
+                    c=t1
+                   
+                }
+                else if (run1<run2) {
+                    c=t2;
+
+                }
+                   
+                
+                else{
+                    c="Its a tie";
+                }
+                
+                document.getElementById("win").innerHTML += c;
+                }
+
+            
+        </script>
+    </body>
+</html>

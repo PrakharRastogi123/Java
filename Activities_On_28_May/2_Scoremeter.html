@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Scoremeter</title>
+<style>
+
+input {
+  
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  margin-left: 30px;
+}
+.container {
+  border-style: groove;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+  background-color:pink;
+}
+center {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h1 style="text-align: center; font-size: 40px;">Score Meter</h1>
+        <h3 style="text-align: center;">(Enter the number of singles,doubles,triples,fours and sixes in comma seperated format)</h2><br>
+        <center>
+                Enter the score details:<input type="text" id="score"  required>
+                <br><br>
+               
+                <button onclick="submitclick()" id="submitscore">Get Score</button><br><br>
+                Total Score
+                <div id=total>
+
+                </div>
+           
+            <br><br><br>
+        </center>
+    </div>
+    <script>
+            function submitclick()
+            {
+                
+                var a=document.getElementById('score').value;
+                var strArr = a.split(",");
+                var sum=Number(strArr[0])+(Number(strArr[1])*2)+(Number(strArr[2])*3)+(Number(strArr[3])*4)+(Number(strArr[4])*6);
+                document.getElementById("total").innerHTML =sum;
+            }
+        </script>
+    </body>
+</html>

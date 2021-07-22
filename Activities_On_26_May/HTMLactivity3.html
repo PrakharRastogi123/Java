@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Add Player Form</title>
+        <style>
+            .heading{
+                    background-color: #87CEEB;
+                    font-style: italic;
+                    color: #708090;
+                    text-align: center;
+                    margin: auto;
+                    width: 500px;
+                    padding: 10px;
+                    border: 1px solid black;
+                    }
+            
+                    
+            
+            .heading1{
+                     background-color: rgb(141, 141, 250);
+                     text-align: center;
+                     color:white;
+                     margin: auto;
+                    width: 500px;
+                    height: 40px;
+                    padding: 10px;
+                    border: 1px solid black;
+                    }
+            .heading2{
+                    background-color: rgb(141, 141, 250);
+                    font-style: italic;
+                    color: #708090;
+                    text-align: center;
+                    margin: auto;
+                    width: 500px;
+                    height: 40px;
+                    padding: 10px;
+                    border: 1px solid black;
+
+                    }
+                    *{
+                        margin:auto;
+                    }
+
+        </style>
+    </head>
+    <body>
+        
+            <div class="heading1" >
+                 <h2 >Player Details</h2><br><br>
+            </div><br>
+
+            <div  class="heading" >
+                <form  style="text-align: left; margin-left: 25%">
+                    Name<span style="color: red;margin-right: 35px">&#42;</span> <input  type="text" required id="name" autofocus placeholder="Enter your name" ><br><br>
+                    DOB<span style="color: red;margin-right: 40px">&#42;</span> <input type="text" id="dob" placeholder="DD/MM/YYYY"><br><br>
+                    Age<span style="color: red;margin-right: 48px">&#42;</span> <input type="number" id="dob" pattern=\d{1,2}/\d{1,2}/\d{4} placeholder="Enter your age"><br><br>
+                    Email id<span style="color: red;margin-right: 19px">&#42;</span> <input type="email" id="email" pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$ placeholder="abc12@xyz.com"><br><br>
+                    Country<span style="color: red;margin-right: 22px">&#42;</span>  <select>
+                        <option>India</option>
+                        <option>Australia</option>
+                        </select> <br><br>
+
+                    Skill<span style="color: red;margin-right: 44px">&#42;</span>  <input type="checkbox" id="skill">Batting 
+                      <input type="checkbox" id="skill">Bowling <br><br>
+
+                    Bat Style<span style="margin-right: 22px"></span> <input type="radio" id="bat" >Right Handed
+                          <input type="radio" id="bat">Left Handed <br><br>
+
+                    Bowl Style<span style="margin-right: 13px"></span> <input type="radio" id="bowl">Right Handed
+                    <input type="radio" id="bowl">Left Handed <br><br>
+                    Matches<span style="color: red;margin-right: 24px">&#42;</span>  <input type="text" id="match" placeholder="Matches Played"><br><br>
+                    Runs<span style="color: red;margin-right: 46px">&#42;</span>  <input type="number" id="run" placeholder="Total Runs Scored"><br><br>
+                    Wickets<span style="color: red;margin-right: 29px">&#42;</span>  <input type="number" id="wicket" placeholder="Wickets"><br><br>
+                    Achievements<textarea rows="4" cols="30" placeholder="Your Achievements in cricket"></textarea><br><br>
+                </form>
+            </div>
+            <br>
+                    <div class="heading2">
+                        <input type="submit" id="submitid">
+                        <input type="reset" id="resetid">
+                    </div>
+
+                
+        
+        
+    </body>
+</html>
